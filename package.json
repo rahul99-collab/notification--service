@@ -1,0 +1,23 @@
+{
+  "name": "notification-service",
+  "version": "1.0.0",
+  "description": "A service for sending and managing notifications",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.5.0",
+    "body-parser": "^1.20.2",
+    "nodemailer": "^6.9.5",
+    "twilio": "^4.17.0",
+    "amqplib": "^0.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
