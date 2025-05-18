@@ -21,12 +21,12 @@ Before you begin, ensure you have the following installed:
 
 Node.js (v14 or newer)
 MongoDB
-RabbitMQ
+RabbitMQ[
 
 Installation
 
 Clone the repository:
-git clone https://github.com/yourusername/notification-service.git
+git clone https://github.com/yourusername/notification-service.git](https://github.com/rahul99-collab/notification--service)
 cd notification-service
 
 Install dependencies:
@@ -34,11 +34,11 @@ npm install
 
 Create a .env file in the root directory with the following variables:
 PORT=3000
-MONGODB_URI=mongodb://localhost:27017/notification-service
-EMAIL_USER=your-email@example.com
-EMAIL_PASS=your-email-password
-TWILIO_ACCOUNT_SID=your-twilio-sid
-TWILIO_AUTH_TOKEN=your-twilio-token
+MONGODB_URI=mongodb+srv://rahulkumarsahu2745:Mongodb18@cluster0.aboy1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+EMAIL_USER=rahulkumarsahu2745@gmail.com
+EMAIL_PASS=gghg dkrj dguy nluz
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=YOUR_TWILIO_ACCOUNT_SID
 RABBITMQ_URL=amqp://localhost
 
 Start the service:
@@ -60,50 +60,90 @@ json{
 Response:
 json{
   "success": true,
-  "message": "Notification queued for delivery",
-  "data": {
-    "_id": "60f7b0b3e6b3a40cf4c1a5d7",
-    "userId": "user123",
-    "type": "EMAIL",
-    "title": "Welcome to Our Service",
-    "content": "Thank you for signing up!",
-    "status": "PENDING",
-    "retryCount": 0,
-    "createdAt": "2023-07-21T12:30:43.511Z",
-    "updatedAt": "2023-07-21T12:30:43.511Z"
+    "message": "Notification queued for delivery",
+    "data": {
+        "userId": "user123",
+        "type": "EMAIL",
+        "title": "Welcome to Notification Service",
+        "content": "This is a test notification from our new service!",
+        "status": "PENDING",
+        "retryCount": 0,
+        "_id": "6829f2c21e4c8eca3552cadf",
+        "createdAt": "2025-05-18T14:46:26.105Z",
+        "updatedAt": "2025-05-18T14:46:26.105Z",
+        "__v": 0
   }
 }
 Get User Notifications
 Endpoint: GET /users/{id}/notifications
 Response:
 json{
-  "success": true,
-  "count": 2,
-  "data": [
-    {
-      "_id": "60f7b0b3e6b3a40cf4c1a5d7",
-      "userId": "user123",
-      "type": "EMAIL",
-      "title": "Welcome to Our Service",
-      "content": "Thank you for signing up!",
-      "status": "SENT",
-      "retryCount": 0,
-      "createdAt": "2023-07-21T12:30:43.511Z",
-      "updatedAt": "2023-07-21T12:30:45.612Z"
-    },
-    {
-      "_id": "60f7b0b3e6b3a40cf4c1a5d8",
-      "userId": "user123",
-      "type": "SMS",
-      "title": "2FA Code",
-      "content": "Your verification code is 123456",
-      "status": "SENT",
-      "retryCount": 0,
-      "createdAt": "2023-07-21T12:29:43.511Z",
-      "updatedAt": "2023-07-21T12:29:45.612Z"
-    }
-  ]
+    "success": true,
+    "count": 5,
+    "data": [
+        {
+            "_id": "6829f2c21e4c8eca3552cadf",
+            "userId": "user123",
+            "type": "EMAIL",
+            "title": "Welcome to Notification Service",
+            "content": "This is a test notification from our new service!",
+            "status": "SENT",
+            "retryCount": 3,
+            "createdAt": "2025-05-18T14:46:26.105Z",
+            "updatedAt": "2025-05-18T14:47:03.172Z",
+            "__v": 0
+        },
+        {
+            "_id": "68295f3d9c16148eec121cfa",
+            "userId": "user123",
+            "type": "EMAIL",
+            "title": "Welcome to Notification Service",
+            "content": "This is a test notification from our new service!",
+            "status": "SENT",
+            "retryCount": 3,
+            "createdAt": "2025-05-18T04:17:01.967Z",
+            "updatedAt": "2025-05-18T04:17:32.405Z",
+            "__v": 0
+        },
+        {
+            "_id": "68295e5e78090487ccda56dd",
+            "userId": "user123",
+            "type": "EMAIL",
+            "title": "Welcome to Notification Service",
+            "content": "This is a test notification from our new service!",
+            "status": "FAILED",
+            "retryCount": 3,
+            "createdAt": "2025-05-18T04:13:18.623Z",
+            "updatedAt": "2025-05-18T04:13:53.772Z",
+            "__v": 0
+        },
+        {
+            "_id": "68295c2dfc82a3c81f4ef919",
+            "userId": "user123",
+            "type": "EMAIL",
+            "title": "Welcome to Notification Service",
+            "content": "This is a test notification from our new service!",
+            "status": "SENT",
+            "retryCount": 3,
+            "createdAt": "2025-05-18T04:03:57.902Z",
+            "updatedAt": "2025-05-18T04:04:33.675Z",
+            "__v": 0
+        },
+        {
+            "_id": "6828f6553554fdefb7fe198b",
+            "userId": "user123",
+            "type": "EMAIL",
+            "title": "Welcome to Notification Service",
+            "content": "This is a test notification from our new service!",
+            "status": "SENT",
+            "retryCount": 3,
+            "createdAt": "2025-05-17T20:49:25.137Z",
+            "updatedAt": "2025-05-17T20:50:01.025Z",
+            "__v": 0
+        }
+    ]
 }
+
 Notification Types
 The service supports three types of notifications:
 
@@ -146,6 +186,3 @@ Create a notification template system
 Add unit and integration tests
 Add rate limiting to prevent abuse
 Implement notification preferences per user
-
-License
-KIIT
